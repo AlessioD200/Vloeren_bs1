@@ -460,7 +460,7 @@ p.Pro2 {
     }
 
     /* Footer */
-    .footer, .footer1 {
+    .footer, .footer1, .footer2 {
         position: relative; /* Change to relative to avoid overlap */
     }
 }
