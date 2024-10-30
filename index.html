@@ -12,8 +12,13 @@
 <header>
   <div class="container">
     <div id="logo">Vloeren BS</div>
+    <div class="hamburger" id="hamburger">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
     <nav class="menu">
-      <ul class="nav-links">
+      <ul class="nav-links" id="nav-links">
         <li><a href="index.html" class="active">HOME</a></li>
         <li><a href="OnzeProjecten.html">ONZE PROJECTEN</a></li>
         <li><a href="Klantenbeoordelingen.html">KLANTENBEOORDELINGEN</a></li>
@@ -107,6 +112,15 @@
 <footer class="footer">
   <p>&copy; 2024 Vloeren BS</p>
 </footer>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('nav-links');
+
+  hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+  });
+</script>
 
 </body>
 </html>
