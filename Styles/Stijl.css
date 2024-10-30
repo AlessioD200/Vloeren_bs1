@@ -79,7 +79,6 @@ h3.mooi {
     font-family: "Julius Sans One", "sans-serif";
 }
 
-/* Hero Section */
 .hero {
     background: url('../Images/Vloer.png') no-repeat center center/cover;
     height: 300px;
@@ -87,6 +86,7 @@ h3.mooi {
     display: flex;
     justify-content: center;
     align-items: center;
+
 }
 
 .quote-button {
@@ -95,6 +95,7 @@ h3.mooi {
     padding: 10px 20px;
     font-weight: bold;
     text-decoration: none;
+    border-radius: 5px;
 }
 
 /* Welcome Section */
