@@ -1,40 +1,34 @@
-let slideIndex = 0;
-autoShowSlides();
-showSlides(slideIndex);
+let currentSlideIndex = 0;
+const slides = document.querySelectorAll(".slide");
+const slideInterval = 5000; // Interval time in milliseconds (5 seconds)
 
-function changeSlide(n) {
-    showSlides(slideIndex += n);
-}
-function autoShowSlides() {
-    const slides = document.getElementsByClassName("slide");
-    for (let slide of slides) {
-        slide.style.display = "none";
-    }
-    slideIndex++;
-    if (slideIndex > slides.length) { slideIndex = 1; }
-    slides[slideIndex - 1].style.display = "block";
-    setTimeout(autoShowSlides, 3000); // Change image every 3 seconds
-}
-
-function showSlides(n) {
-    const slides = document.getElementsByClassName("slide");
-    if (n >= slides.length) { slideIndex = 0; }
-    if (n < 0) { slideIndex = slides.length - 1; }
-
-    for (let slide of slides) {
-        slide.style.display = "none";
-    }
-
-    slides[slideIndex].style.display = "block";
-}
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
-        });
+function showSlide(index) {
+    slides.forEach((slide, i) => {
+        slide.style.display = i === index ? "block" : "none";
     });
-});
+}
 
+function changeSlide(direction) {
+    currentSlideIndex += direction;
+    if (currentSlideIndex >= slides.length) currentSlideIndex = 0;
+    if (currentSlideIndex < 0) currentSlideIndex = slides.length - 1;
+    showSlide(currentSlideIndex);
+}
 
+function autoSlide() {
+    currentSlideIndex = (currentSlideIndex + 1) % slides.length;
+    showSlide(currentSlideIndex);
+}
 
+// Open image in a new tab to zoom in
+function openInNewTab(src) {
+    window.open(src, "_blank").focus();
+}
+
+// Initialize slideshow and set up autoslide interval
+showSlide(currentSlideIndex);
+setInterval(autoSlide, slideInterval);
+
+// Manual navigation
+document.querySelector(".prev").addEventListener("click", () => changeSlide(-1));
+document.querySelector(".next").addEventListener("click", () => changeSlide(1));
