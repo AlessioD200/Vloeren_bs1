@@ -176,7 +176,7 @@ h3.mooi{
 .contact-info .logo {
     max-width: 100%;
     height: auto;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 .contact-info h2 {
@@ -366,6 +366,14 @@ p.Pro2{
     width: 100%;
     font-family: Garamond, sans-serif;
     margin-top: 115px;
+    font-size: 1.4rem;
+}
+.Pro3 {
+    color: #000;
+    text-align: center;
+    width: 100%;
+    font-family: Garamond, sans-serif;
+    margin-top: 50px;
     font-size: 1.4rem;
 }
 
